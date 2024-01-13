@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo pacman -Syu
 
 #main programm install
