@@ -1,7 +1,7 @@
 sudo pacman -Syu
 
 #main programm install
-sudo pacman -S git firefox kitty discord spotify steam htop curl wget powerline-fonts rofi nvim polybar pywal networkmanager_dmenu nerd-fonts fantasque-sans-mono noto-fonts-extra ttf-droid terminus-font ranger
+sudo pacman -S git firefox kitty discord spotify steam htop curl wget powerline-fonts rofi nvim polybar pywal networkmanager_dmenu nerd-fonts fantasque-sans-mono noto-fonts-extra ttf-droid terminus-font ranger sddm openbox
 
 #yay install
 sudo pacman -S --needed git base-devel
@@ -45,4 +45,14 @@ git clone https://github.com/adi1090x/kitty-cat
 cd kitty-cat
 ./install
 
+#openbox setup
+mkdir -p ~/.config/openbox
+cp /etc/xdg/openbox/* ~/.config/openbox/
+echo "polybar --config=~/.config/polybar/config top &" > ~/.config/openbox/autostart
+echo "rofi -show drun -display-drun \"Applications\" -sidebar-mode &" > ~/.config/openbox/autostart
+
 chsh -s $(which zsh)
+
+#sddm enable
+sudo systemctl enable sddm
+sudo systemctl restart sddm
