@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #main programm install
-sudo pacman -S git firefox kitty discord spotify steam htop curl wget powerline-fonts rofi vim neovim polybar pywal networkmanager_dmenu nerd-fonts fantasque-sans-mono noto-fonts-extra ttf-droid terminus-font ranger
+sudo pacman -S git firefox kitty discord spotify steam htop curl wget powerline-fonts rofi vim neovim polybar pywal networkmanager_dmenu nerd-fonts fantasque-sans-mono noto-fonts-extra ttf-droid terminus-font ranger plank
 
 #yay install
 sudo pacman -S --needed git base-devel
