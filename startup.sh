@@ -10,7 +10,7 @@ cd yay-bin
 makepkg -si
 
 #yay main programm install
-yay -S github-desktop-bin prismlauncher jetbrains-toolbox spicetify-cli discord-screenaudio ttf-icomoon-feather material-icons-git siji-ttf siji-git
+yay -S github-desktop-bin prismlauncher jetbrains-toolbox spicetify-cli discord-screenaudio ttf-icomoon-feather material-icons-git siji-ttf siji-git pamac
 
 #spicetify(spotify custom install)
 sudo chmod a+wr /opt/spotify
