@@ -3,7 +3,7 @@
 sudo pacman -Syu
 
 #main programm install
-sudo pacman -S git firefox kitty discord spotify steam htop curl wget powerline-fonts rofi nvim polybar pywal networkmanager_dmenu nerd-fonts fantasque-sans-mono noto-fonts-extra ttf-droid terminus-font ranger sddm openbox
+sudo pacman -S git firefox kitty discord spotify steam htop curl wget powerline-fonts rofi nvim polybar pywal networkmanager_dmenu nerd-fonts fantasque-sans-mono noto-fonts-extra ttf-droid terminus-font ranger openbox
 
 #yay install
 sudo pacman -S --needed git base-devel
@@ -55,6 +55,20 @@ echo "rofi -show drun -display-drun \"Applications\" -sidebar-mode &" > ~/.confi
 
 chsh -s $(which zsh)
 
-#sddm enable
-sudo systemctl enable sddm
-sudo systemctl restart sddm
+#lightdm enable
+pacman -S lightdm lightdm-gtk-greeter --noconfirm
+sed -i 's/^greeter-session=.*/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
+systemctl enable lightdm.service
+
+#openbox install cfg
+pacman -S --needed xorg-server xorg-xinit --noconfirm
+pacman -S volumeicon
+pacman -S network-manager-applet --noconfirm
+cp -r /etc/xdg/openbox ~/.config/
+touch ~/.config/openbox/autostart
+chmod +x ~/.config/openbox/autostart
+echo "plank &" >> ~/.config/openbox/autostart
+echo "nitrogen --restore &" >> ~/.config/openbox/autostart
+echo "volumeicon &" >> ~/.config/openbox/autostart
+echo "nm-applet &" >> ~/.config/openbox/autostart
+echo "exec openbox-session" > ~/.xinitrc
